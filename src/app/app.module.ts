@@ -8,10 +8,12 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CartComponent } from './cart/cart.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 const appRoutes: Routes = [
   {path:"login", component: LoginPageComponent},
   {path:"cart", component: CartComponent},
+  {path:"register",component:RegisterPageComponent},
   {path:"**", component: MainMenuComponent}
 ]
 
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginPageComponent,
     MainMenuComponent,
-    CartComponent
+    CartComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
