@@ -12,6 +12,7 @@
 		    <ngb-alert type="danger"[hidden]="password.valid || password.pristine"[dismissible]="false">Password is required</ngb-alert>
 	    </div>
 		<button type="submit" class="btn btn-primary" [disabled]="!loginPage.form.valid">Login</button>
+		<ngb-alert [type]="(error == null) ? 'info' : error.type" [hidden]="error==null">{{error.message}}</ngb-alert>
 	</form>
 	<hr/>
 	<div>
