@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {loginRequest, AuthenticationService} from '../authentication.service'
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+	model: loginRequest = {userName:"",password:""};
+
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+  	this.authenticationService.login(this.model).subscribe(
+  		(response)=>{localStorage.setItem("access_token",response.access_token)},
+  		(err)=>{console.log(err)}
+  	)
   }
 
 }
