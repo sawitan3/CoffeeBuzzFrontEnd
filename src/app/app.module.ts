@@ -9,6 +9,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CartComponent } from './cart/cart.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { ItemContainerComponent } from './item-container/item-container.component';
 
 const appRoutes: Routes = [
   {path:"login", component: LoginPageComponent},
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     LoginPageComponent,
     MainMenuComponent,
     CartComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ItemContainerComponent
   ],
   imports: [
     BrowserModule,
