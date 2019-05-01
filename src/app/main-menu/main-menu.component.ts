@@ -14,7 +14,7 @@ export class MainMenuComponent implements OnInit {
 
   ngOnInit() {
   	this.drinksService.drinkList().subscribe(
-  	  (result)=>{result=result.data;this.drinks = this.ConvertDataForDisplay(result);},(error)=>{console.log(error)});
+  	  (result)=>{this.drinks = this.ConvertDataForDisplay(result.data);},(error)=>{console.log(error)});
   }
 
   private ConvertDataForDisplay(input: Drink[]): DisplayDrink[]{

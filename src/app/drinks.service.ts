@@ -13,8 +13,8 @@ export class DrinksService {
 
   constructor(private http: HttpClient) { }
 
-  public drinkList(): Observable<Drink[]>{
-  	return this.http.get<Drink[]>(this.baseUrl);
+  public drinkList(){
+  	return this.http.get<Response>(this.baseUrl);
   }
 }
 
@@ -25,6 +25,10 @@ export interface Drink{
 	price: number,
 	drink_name: DrinkName[],
 	drink_size: DrinkSize[]
+}
+
+export interface Response {
+	data: Drink[]
 }
 
 export interface DrinkName{
