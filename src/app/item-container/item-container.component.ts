@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {DisplayDrink, DrinkDetails} from '../models/drink';
 
 @Component({
   selector: 'app-item-container',
@@ -7,11 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemContainerComponent implements OnInit {
 
-  @Input()
-  type: number;
-
-  @Input()
-  name: string;
+  selected: DrinkDetails;
+  @Input('drink')
+  public dataObject: DisplayDrink;
 
   @Input()
   price: number;
@@ -23,13 +22,7 @@ export class ItemContainerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  isDrink(): boolean {
-    if (this.type === 1) {
-      return true;
-    }
-    return false;
+    this.selected = this.dataObject.drinkDetails[0];
   }
 
 }
