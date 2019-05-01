@@ -1,10 +1,9 @@
 <div>
-	<div class="row">
-		<div class="col">
-			<app-item-container name="item01"></app-item-container>
-		</div>
-		<div class="col">
-			<app-item-container name="item02"></app-item-container>
+	<div *ngFor="let drink of drinks">
+		<div class="row">
+			<div class="col">
+				<app-item-container [drink]="drink"></app-item-container>
+			</div>
 		</div>
 	</div>
 </div>
