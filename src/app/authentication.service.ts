@@ -13,18 +13,20 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  public login(loginDetail: loginRequest): Observable<loginResponse>{
-  	return this.http.post<loginResponse>(`${this.baseUrl}/login`,loginDetail)
+  public login(loginDetail: loginRequest): Observable<loginResponse> {
+    return this.http.post<loginResponse>(`${this.baseUrl}/login`, loginDetail);
   }
 }
 
+// tslint:disable-next-line:class-name
 export interface loginRequest {
-	userName: string,
-	password: string,
+  userName: string;
+  password: string;
 }
 
+// tslint:disable-next-line:class-name
 export interface loginResponse {
-	access_token: string,
-	token_type: string,
-	expires_in: number
+  access_token: string;
+  token_type: string;
+  expires_in: number;
 }

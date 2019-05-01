@@ -14,9 +14,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  linkClick(destination: string){
-  	this.router.navigateByUrl(destination);
-  	this.isNavbarCollapsed = true;
+  linkClick(destination: string) {
+    this.router.navigateByUrl(destination);
+    this.isNavbarCollapsed = true;
   }
 
 }

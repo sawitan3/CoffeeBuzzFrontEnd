@@ -1,25 +1,48 @@
+<!--<div class="container">-->
+<!--	<div class="row">-->
+<!--		<div class="col">-->
+<!--			<h4>{{name}}</h4>-->
+<!--      <h4>{{price}}</h4>-->
+<!--			<img src="http://placehold.jp/150x150.png">-->
+<!--		</div>-->
+<!--		<div class="col">-->
+<!--			<form>-->
+<!--			  <div class="form-group" *ngIf="isDrink()">-->
+<!--          <label for="exampleFormControlSelect1">Size</label>-->
+<!--          <select class="form-control" id="exampleFormControlSelect1">-->
+<!--            <option>S</option>-->
+<!--            <option>M</option>-->
+<!--            <option>L</option>-->
+<!--          </select>-->
+<!--        </div>-->
+<!--			  <div class="form-group">-->
+<!--				  <label>Quantity</label>-->
+<!--				    <input class="form-control" type="text" placeholder="Quantity">-->
+<!--        </div>-->
+<!--			  <button class="btn btn-primary">Add to Cart</button>-->
+<!--			</form>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</div>-->
+
+
 <div class="container">
-	<div class="row">
-		<div class="col">
-			<img src="http://placehold.jp/150x150.png">
-			<h1>{{name}}</h1>
-		</div>
-		<div class="col">
-			<form>
-			<div class="form-group">
-    <label for="exampleFormControlSelect1">Size</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>S</option>
-      <option>M</option>
-      <option>L</option>
-    </select>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card-deck">
+        <div class="card">
+          <img class="card-img-top" src="http://placehold.jp/150x150.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text"></p>
+            <div class="form-group">
+              <label>Quantity</label>
+              <input class="form-control" type="text" placeholder="Quantity">
+            </div>
+            <button class="btn btn-primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-			<div class="form-group">
-				<label>Quantity</label>
-				<input class="form-control" type="text" placeholder="Quantity">
-			</div>
-			<button class="btn btn-primary">Add to Cart</button>
-			</form>
-		</div>
-	</div>
 </div>
