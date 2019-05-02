@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {loginRequest, AuthenticationService} from '../authentication.service';
+import {LoginRequest, AuthenticationService} from '../authentication.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -9,7 +9,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class LoginPageComponent implements OnInit {
 
-  model: loginRequest = {userName: '', password: ''};
+  model: LoginRequest = {userName: '', password: ''};
   error: ErrorMessage;
 
   constructor(private authenticationService: AuthenticationService) { }

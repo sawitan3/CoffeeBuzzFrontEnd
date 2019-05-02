@@ -50,7 +50,7 @@ export class MainMenuComponent implements OnInit {
 
   private getDrinks() {
     this.drinksService.drinkList().subscribe(
-      (result) => {this.drinks = this.ConvertDataForDisplay(result.data); } , (error) => {console.log(error);});
+      (result) => {this.drinks = this.ConvertDataForDisplay(result.data); } , (error) => { console.log(error); });
   }
 
   private ConvertDataForDisplay(input: Drink[]): DisplayDrink[] {
@@ -59,7 +59,7 @@ export class MainMenuComponent implements OnInit {
     currentDisplayObject.drinkDetails = [];
     let currentDrinkId = 1;
     for (const currentItem of input) {
-      if (currentItem.name_id != currentDrinkId) {
+      if (currentItem.name_id !== currentDrinkId) {
         endResult.push(currentDisplayObject);
         currentDisplayObject = new DisplayDrink();
         currentDisplayObject.drinkDetails = [];
