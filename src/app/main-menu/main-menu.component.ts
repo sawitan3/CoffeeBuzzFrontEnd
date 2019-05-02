@@ -1,9 +1,8 @@
 
-import {Component, Input, OnInit} from '@angular/core';
-import {DisplayDrink, Drink, DrinkDetails} from '../models/drink';
-import {MenuService} from '../menu.service';
-import {Food} from '../models/food';
+import {Component, OnInit} from '@angular/core';
 import {DrinksService} from '../drinks.service';
+import { ConsolidatedMenuService} from '../consolidated-menu.service';
+import {MenuItem} from '../models/common';
 
 @Component({
   selector: 'app-main-menu',
@@ -40,41 +39,19 @@ export class MainMenuComponent implements OnInit {
   //     console.log(this.food);
   //   });food
 
-  drinks: DisplayDrink[];
+  items: MenuItem[];
 
-  constructor(public drinksService: DrinksService) { }
+  constructor(public menuService: ConsolidatedMenuService) { }
 
   ngOnInit() {
     this.getDrinks();
   }
 
   private getDrinks() {
-    this.drinksService.drinkList().subscribe(
-      (result) => {this.drinks = this.ConvertDataForDisplay(result.data); } , (error) => { console.log(error); });
+    this.menuService.Menu().subscribe(
+      (result) => {this.items = result;} , (error) => { console.log(error); });
   }
 
-  private ConvertDataForDisplay(input: Drink[]): DisplayDrink[] {
-    const endResult = [];
-    let currentDisplayObject = new DisplayDrink();
-    currentDisplayObject.drinkDetails = [];
-    let currentDrinkId = 1;
-    for (const currentItem of input) {
-      if (currentItem.name_id !== currentDrinkId) {
-        endResult.push(currentDisplayObject);
-        currentDisplayObject = new DisplayDrink();
-        currentDisplayObject.drinkDetails = [];
-        currentDrinkId = currentItem.name_id;
-      }
-      currentDisplayObject.name = currentItem.drink_name[0].name;
-      const drinkDetails = new DrinkDetails();
-      drinkDetails.size = currentItem.drink_size[0].size;
-      drinkDetails.price = currentItem.price;
-      drinkDetails.itemId = currentItem.id;
-      currentDisplayObject.drinkDetails.push(drinkDetails);
-    }
-    endResult.push(currentDisplayObject);
-    return endResult;
-  }
 }
 
 

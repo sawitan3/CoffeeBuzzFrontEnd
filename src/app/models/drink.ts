@@ -7,17 +7,6 @@ export interface Drink {
   drink_size: DrinkSize[];
 }
 
-export class DisplayDrink {
-  name: string;
-  drinkDetails: DrinkDetails[];
-}
-
-export class DrinkDetails {
-  size: string;
-  price: number;
-  itemId: number;
-}
-
 export interface DrinkName {
   id: number;
   name: string;
