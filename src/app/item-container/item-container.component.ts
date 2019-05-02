@@ -9,13 +9,12 @@ import {MenuItem, MenuDetails} from '../models/common';
 export class ItemContainerComponent implements OnInit {
 
   selected: MenuDetails;
-  @Input('item')
-  public dataObject: MenuItem;
+  public item: MenuItem;
 
   constructor() { }
 
   ngOnInit() {
-    this.selected = this.dataObject.menuDetails[0];
+    this.selected = this.item.menuDetails[0];
   }
 
 }

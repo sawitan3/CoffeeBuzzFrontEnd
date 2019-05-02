@@ -24,7 +24,7 @@ export class FoodsService {
     for (const item of input) {
       const newItem = new MenuItem();
       newItem.name = item.name;
-      newItem.menuDetails = []
+      newItem.menuDetails = [];
       const itemDetails = new MenuDetails();
       itemDetails.itemId = item.id;
       itemDetails.qty = item.qty;

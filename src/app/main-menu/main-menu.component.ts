@@ -49,7 +49,7 @@ export class MainMenuComponent implements OnInit {
 
   private getDrinks() {
     this.menuService.Menu().subscribe(
-      (result) => {this.items = result;} , (error) => { console.log(error); });
+      (result) => {this.items = result; } , (error) => { console.log(error); });
   }
 
 }
