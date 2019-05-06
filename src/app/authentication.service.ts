@@ -18,9 +18,9 @@ export class AuthenticationService {
   }
 }
 
-export interface loginRequest {
-	userName: string,
-	password: string,
+export interface LoginRequest {
+  username: string;
+  password: string;
 }
 
 export interface loginResponse {

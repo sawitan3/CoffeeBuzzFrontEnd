@@ -9,8 +9,8 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class LoginPageComponent implements OnInit {
 
-	model: loginRequest = {userName:"",password:""};
-	error: ErrorMessage;
+  model: LoginRequest = {username: '', password: ''};
+  error: ErrorMessage;
 
   constructor(private authenticationService: AuthenticationService) { }
 
@@ -18,12 +18,13 @@ export class LoginPageComponent implements OnInit {
   	this.error = null;
   }
 
-  onSubmit(){
-  	this.error= null;
-  	this.authenticationService.login(this.model).subscribe(
-  		(response)=>{localStorage.setItem("access_token",response.access_token)},
-  		(err)=>{this.onError(err)}
-  	)
+  onSubmit() {
+    this.error = null;
+    console.log(this.model);
+    this.authenticationService.login(this.model).subscribe(
+      (response) => {localStorage.setItem('access_token', response.access_token); },
+      (err) => {this.onError(err); }
+      );
   }
 
   onError(error: HttpErrorResponse){
