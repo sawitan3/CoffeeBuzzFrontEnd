@@ -16,9 +16,10 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BaristaPageComponent } from './barista-page/barista-page.component';
 
 import { AuthGuard } from './auth.guard';
+import {LoginPageGuard} from './login-page.guard';
 
 const appRoutes: Routes = [
-  {path: 'login', component: LoginPageComponent},
+  {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'main-menu', component: MainMenuComponent},

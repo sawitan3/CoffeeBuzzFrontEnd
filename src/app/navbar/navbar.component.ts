@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
               private storage: StorageService) { }
 
   ngOnInit() {
+    this.isLoggedIn = this.storage.getItem('isLoggedIn') || false;
     this.storage.watchStorage().subscribe(() => {
       this.isLoggedIn = this.storage.getItem('isLoggedIn') || false;
     });
