@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {StorageService} from '../storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +11,13 @@ export class NavbarComponent implements OnInit {
 
   isNavbarCollapsed = true;
   isLoggedIn: boolean;
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private storage: StorageService) { }
 
   ngOnInit() {
-    this.isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')) || false;
+    this.storage.watchStorage().subscribe(() => {
+      this.isLoggedIn = this.storage.getItem('isLoggedIn') || false;
+    });
   }
 
   linkClick(destination: string) {
@@ -22,7 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    localStorage.clear();
+    this.storage.clear();
     this.router.navigate(['/main-page']);
   }
 

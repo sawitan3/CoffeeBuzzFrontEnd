@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginRequest, LoginResponse, AuthenticationService, User} from '../authentication.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {StorageService} from '../storage.service';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +15,8 @@ export class LoginPageComponent implements OnInit {
   error: ErrorMessage;
 
   constructor(private authenticationService: AuthenticationService,
-              private router: Router) { }
+              private router: Router,
+              private storageService: StorageService) { }
 
   ngOnInit() {
     this.error = null;
@@ -41,8 +43,8 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSuccess(response: LoginResponse) {
-    localStorage.setItem('access_token', response.access_token);
-    localStorage.setItem('isLoggedIn', 'true');
+    this.storageService.setItem('access_token', response.access_token);
+    this.storageService.setItem('isLoggedIn', true);
     this.authenticationService.me().subscribe(
         (res) => {this.redirection(res); },
         (err) => {this.onError(err); }
@@ -51,13 +53,13 @@ export class LoginPageComponent implements OnInit {
 
   redirection(response: User) {
     if (response.role_id === 1) {
-      localStorage.setItem('role', 'admin');
+      this.storageService.setItem('role', 'admin');
       this.router.navigate(['/admin-page']);
     } else if (response.role_id === 2 ) {
-      localStorage.setItem('role', 'barista');
+      this.storageService.setItem('role', 'barista');
       this.router.navigate(['/barista-page']);
     } else {
-      localStorage.setItem('role', 'customer');
+      this.storageService.setItem('role', 'customer');
       this.router.navigate(['/main-page']);
     }
   }
