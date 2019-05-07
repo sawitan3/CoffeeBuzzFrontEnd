@@ -14,7 +14,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   public login(loginDetail: LoginRequest): Observable<LoginResponse> {
-      return this.http.post<LoginResponse>(`${this.baseUrl}/login`, loginDetail);
+    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, loginDetail);
   }
 }
 
@@ -24,7 +24,7 @@ export interface LoginRequest {
 }
 
 export interface LoginResponse {
-    access_token: string;
-    token_type: string;
-    expires_in: number;
+  access_token: string;
+  token_type: string;
+  expires_in: number;
 }
