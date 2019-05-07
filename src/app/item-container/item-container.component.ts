@@ -9,6 +9,7 @@ import {MenuItem, MenuDetails} from '../models/common';
 export class ItemContainerComponent implements OnInit {
 
   selected: MenuDetails;
+  @Input()
   public item: MenuItem;
 
   constructor() { }
