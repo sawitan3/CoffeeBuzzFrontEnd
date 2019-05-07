@@ -15,11 +15,15 @@ import { ItemContainerComponent } from './item-container/item-container.componen
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BaristaPageComponent } from './barista-page/barista-page.component';
 
+import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterPageComponent},
+  {path: 'main-menu', component: MainMenuComponent},
+  {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard]},
+  {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard]},
   {path: '**', component: MainMenuComponent}
 ];
 
