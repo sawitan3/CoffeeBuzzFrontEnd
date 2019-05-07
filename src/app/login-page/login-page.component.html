@@ -3,8 +3,8 @@
 	<form (ngSubmit)="onSubmit()" #loginPage="ngForm">
 		<div class="form-group">
     		<label for="username">Username</label>
-    		<input [(ngModel)]="model.userName" required type="text" name="userName" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Enter Username" #userName="ngModel">
-    		<ngb-alert type="danger"[hidden]="userName.valid || userName.pristine"[dismissible]="false">Username is required</ngb-alert>
+    		<input [(ngModel)]="model.username" required type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter Username" #username="ngModel">
+    		<ngb-alert type="danger"[hidden]="username.valid || username.pristine"[dismissible]="false">Username is required</ngb-alert>
 		</div>
 		<div class="form-group">
 		    <label for="password">Password</label>

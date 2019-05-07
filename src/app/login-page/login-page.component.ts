@@ -9,7 +9,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class LoginPageComponent implements OnInit {
 
-  model: LoginRequest = {userName: '', password: ''};
+  model: LoginRequest = {username: '', password: ''};
   error: ErrorMessage;
 
   constructor(private authenticationService: AuthenticationService) { }

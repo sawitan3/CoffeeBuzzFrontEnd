@@ -19,7 +19,7 @@ export class AuthenticationService {
 }
 
 export interface LoginRequest {
-  userName: string;
+  username: string;
   password: string;
 }
 
