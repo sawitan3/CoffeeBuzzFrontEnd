@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { ItemContainerComponent } from './item-container/item-container.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { BaristaPageComponent } from './barista-page/barista-page.component';
 
 
 const appRoutes: Routes = [
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     CartComponent,
     RegisterPageComponent,
     ItemContainerComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    BaristaPageComponent
   ],
   imports: [
     BrowserModule,
