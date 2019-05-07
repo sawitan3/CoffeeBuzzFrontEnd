@@ -13,8 +13,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  public login(loginDetail: loginRequest): Observable<loginResponse>{
-  	return this.http.post<loginResponse>(`${this.baseUrl}/login`,loginDetail)
+  public login(loginDetail: LoginRequest): Observable<LoginResponse> {
+      return this.http.post<LoginResponse>(`${this.baseUrl}/login`, loginDetail);
   }
 }
 
@@ -23,8 +23,8 @@ export interface LoginRequest {
   password: string;
 }
 
-export interface loginResponse {
-	access_token: string,
-	token_type: string,
-	expires_in: number
+export interface LoginResponse {
+    access_token: string;
+    token_type: string;
+    expires_in: number;
 }
