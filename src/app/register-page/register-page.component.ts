@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {RegisterData, RegisterService} from '../register.service';
+import { Location } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPageComponent implements OnInit {
 
-  constructor() { }
+  user: RegisterData = { username: '', email: '', role: '3', password: ''};
+
+  constructor(
+    private registerService: RegisterService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    this.registerService.addUser(this.user).subscribe();
+    console.log(this.user);
+    this.goHome();
+  }
+
+  goHome(): void {
+    this.router.navigate(['']);
+  }
 }
