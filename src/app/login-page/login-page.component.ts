@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginRequest, AuthenticationService} from '../authentication.service';
+import {LoginRequest, LoginResponse, AuthenticationService, User} from '../authentication.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {StorageService} from '../storage.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +14,9 @@ export class LoginPageComponent implements OnInit {
   model: LoginRequest = {username: '', password: ''};
   error: ErrorMessage;
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService,
+              private router: Router,
+              private storageService: StorageService) { }
 
   ngOnInit() {
     this.error = null;
@@ -21,7 +25,7 @@ export class LoginPageComponent implements OnInit {
   onSubmit() {
     this.error = null;
     this.authenticationService.login(this.model).subscribe(
-      (response) => {localStorage.setItem('access_token', response.access_token); },
+      (response) => {this.onSuccess(response); },
       (err) => {this.onError(err); }
       );
   }
@@ -35,6 +39,28 @@ export class LoginPageComponent implements OnInit {
     } else if (error.status === 0 || error.status === 500) {
       this.error.message = 'Our server encountered a problem. Please try again.';
       this.error.type = 'info';
+    }
+  }
+
+  onSuccess(response: LoginResponse) {
+    this.storageService.setItem('access_token', response.access_token);
+    this.storageService.setItem('isLoggedIn', true);
+    this.authenticationService.me().subscribe(
+        (res) => {this.redirection(res); },
+        (err) => {this.onError(err); }
+    );
+  }
+
+  redirection(response: User) {
+    if (response.role_id === 1) {
+      this.storageService.setItem('role', 'admin');
+      this.router.navigate(['/admin-page']);
+    } else if (response.role_id === 2 ) {
+      this.storageService.setItem('role', 'barista');
+      this.router.navigate(['/barista-page']);
+    } else {
+      this.storageService.setItem('role', 'customer');
+      this.router.navigate(['/main-page']);
     }
   }
 
