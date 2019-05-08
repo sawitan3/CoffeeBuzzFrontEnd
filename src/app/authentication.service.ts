@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import {StorageService} from './storage.service';
+import {User} from './models/common';
 
 
 @Injectable({
@@ -35,11 +36,4 @@ export interface LoginResponse {
   access_token: string;
   token_type: string;
   expires_in: number;
-}
-
-export interface User {
-  id: number;
-  username: string;
-  email: string;
-  role_id: number;
 }
