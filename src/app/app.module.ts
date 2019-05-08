@@ -15,15 +15,18 @@ import { ItemContainerComponent } from './item-container/item-container.componen
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BaristaPageComponent } from './barista-page/barista-page.component';
 
-import { AuthGuard } from './auth.guard';
-import {LoginPageGuard} from './login-page.guard';
+import { AuthGuard } from './guard/auth.guard';
+import {LoginPageGuard} from './guard/login-page.guard';
+import { CreateNewBaristaComponent } from './admin-page/create-new-barista/create-new-barista.component';
+import { BaristaTableComponent } from './admin-page/barista-table/barista-table.component';
+import {AdminGuard} from './guard/admin.guard';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
   {path: 'cart', component: CartComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'main-menu', component: MainMenuComponent},
-  {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard]},
+  {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
   {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard]},
   {path: '**', component: MainMenuComponent}
 ];
@@ -38,7 +41,9 @@ const appRoutes: Routes = [
     RegisterPageComponent,
     ItemContainerComponent,
     AdminPageComponent,
-    BaristaPageComponent
+    BaristaPageComponent,
+    CreateNewBaristaComponent,
+    BaristaTableComponent
   ],
   imports: [
     BrowserModule,

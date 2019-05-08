@@ -3,7 +3,7 @@ import { HttpClient, HttpResponseBase } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import {Food} from './models/food';
 import {map} from 'rxjs/operators';
-import {MenuDetails, MenuItem, MenuResponse} from './models/common';
+import {MenuDetails, MenuItem, ApiResponse} from './models/common';
 
 
 @Injectable({
@@ -16,7 +16,7 @@ export class FoodsService {
   constructor(private http: HttpClient) { }
 
   public foodList() {
-    return this.http.get<MenuResponse>(this.baseUrl).pipe(map(result => this.ConvertIntoDisplayModel(result.data) ));
+    return this.http.get<ApiResponse>(this.baseUrl).pipe(map(result => this.ConvertIntoDisplayModel(result.data) ));
   }
 
   private ConvertIntoDisplayModel(input: Food[]): MenuItem[] {
