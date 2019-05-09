@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginRequest, LoginResponse, AuthenticationService, User} from '../authentication.service';
+import {LoginRequest, LoginResponse, AuthenticationService} from '../authentication.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {StorageService} from '../storage.service';
+import {User} from '../models/common';
 
 @Component({
   selector: 'app-login-page',
