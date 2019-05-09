@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../users.service';
 import {Role, User} from '../models/common';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CreateNewBaristaComponent} from './create-new-barista/create-new-barista.component';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,7 +11,8 @@ import {Role, User} from '../models/common';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor(private users: UsersService) { }
+  constructor(private users: UsersService,
+              private modalService: NgbModal) { }
 
   baristas: User[];
 
@@ -24,5 +27,9 @@ export class AdminPageComponent implements OnInit {
         this.baristas = this.baristas.filter(item => item.role_id === Role.Barista);
       }
     );
+  }
+
+  newBarista() {
+    this.modalService.open(CreateNewBaristaComponent);
   }
 }

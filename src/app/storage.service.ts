@@ -14,21 +14,21 @@ export class StorageService {
   }
 
   public setItem(key: string, data: any) {
-    localStorage.setItem(key, JSON.stringify(data));
+    sessionStorage.setItem(key, JSON.stringify(data));
     this.storageSub.next(true);
   }
 
   public getItem(key: string) {
-    return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(sessionStorage.getItem(key));
   }
 
   public removeItem(key: string) {
-    localStorage.removeItem(key);
+    sessionStorage.removeItem(key);
     this.storageSub.next(true);
   }
 
   public clear() {
-    localStorage.clear();
+    sessionStorage.clear();
     this.storageSub.next(true);
   }
 }

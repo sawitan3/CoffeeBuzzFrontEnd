@@ -3,7 +3,7 @@
 <ngb-tabset justify="justified">
     <ngb-tab title="Staff">
         <ng-template ngbTabContent>
-            <button type="button" class="btn btn-primary">Add New Barista</button>
+            <button type="button" class="btn btn-primary" (click)="newBarista()">Add New Barista</button>
             <app-barista-table [baristas]="baristas"></app-barista-table>
         </ng-template>
     </ngb-tab>

@@ -20,6 +20,7 @@ import {LoginPageGuard} from './guard/login-page.guard';
 import { CreateNewBaristaComponent } from './admin-page/create-new-barista/create-new-barista.component';
 import { BaristaTableComponent } from './admin-page/barista-table/barista-table.component';
 import {AdminGuard} from './guard/admin.guard';
+import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     AdminPageComponent,
     BaristaPageComponent,
     CreateNewBaristaComponent,
-    BaristaTableComponent
+    BaristaTableComponent,
+    EditBaristaComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateNewBaristaComponent]
 })
 export class AppModule { }

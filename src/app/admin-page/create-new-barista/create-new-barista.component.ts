@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterData, RegisterService} from '../../register.service';
 import {Router} from '@angular/router';
+import {NgbActiveModal, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-create-new-barista',
@@ -13,14 +14,15 @@ export class CreateNewBaristaComponent implements OnInit {
 
   constructor(
       private registerService: RegisterService,
-      private router: Router) { }
+      private router: Router,
+      public modal: NgbActiveModal) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     this.registerService.addUser(this.user).subscribe(
-        () => {this.router.navigate(['/admin-page']);}
+        () => {this.modal.close(); window.location.reload(); }
     );
   }
 }
