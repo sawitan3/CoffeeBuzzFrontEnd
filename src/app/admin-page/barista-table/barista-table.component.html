@@ -15,7 +15,7 @@
         <td>{{ barista.username }}</td>
         <td>{{ barista.email }}</td>
         <td><button type="button" class="btn btn-info">Edit Details</button></td>
-        <td><button type="button" class="btn btn-danger">Delete {{ barista.username }}</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteBarista(barista.id)">Delete {{ barista.username }}</button></td>
       </tr>
     </ng-container>
   </tbody>

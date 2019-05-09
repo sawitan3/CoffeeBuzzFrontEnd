@@ -12,13 +12,18 @@ import {filter, map} from 'rxjs/operators';
 export class UsersService {
 
   baseUrl = `${environment.baseUrl}/users`;
+  header = {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${this.storage.getItem('access_token')}`)
+  }
 
   constructor(private httpService: HttpClient,
               private storage: StorageService) { }
 
   public index() {
-    return this.httpService.get<ApiResponse>(`${this.baseUrl}`, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${this.storage.getItem('access_token')}`)
-    });
+    return this.httpService.get<ApiResponse>(`${this.baseUrl}`, this.header);
+  }
+
+  public delete(id: number) {
+    return this.httpService.delete(`${this.baseUrl}/${id}`, this.header);
   }
 }
