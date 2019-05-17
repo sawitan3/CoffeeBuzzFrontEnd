@@ -56,6 +56,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CreateNewBaristaComponent]
+  entryComponents: [CreateNewBaristaComponent, EditBaristaComponent]
 })
 export class AppModule { }
