@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ApiResponse} from './models/common';
+import {ApiResponse, User} from './models/common';
 import {environment} from '../environments/environment';
 import {StorageService} from './storage.service';
 import {filter, map} from 'rxjs/operators';
@@ -25,5 +25,9 @@ export class UsersService {
 
   public delete(id: number) {
     return this.httpService.delete(`${this.baseUrl}/${id}`, this.header);
+  }
+
+  public update(user: User) {
+    return this.httpService.patch(`${environment.baseUrl}/admin`, user, this.header);
   }
 }
