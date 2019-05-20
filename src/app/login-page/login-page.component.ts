@@ -53,6 +53,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   redirection(response: User) {
+    this.storageService.setItem('user_id', response.id);
     if (response.role_id === 1) {
       this.storageService.setItem('role', 'admin');
       this.router.navigate(['/admin-page']);

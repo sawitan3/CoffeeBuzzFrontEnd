@@ -24,7 +24,7 @@ import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.com
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterPageComponent},
   {path: 'main-menu', component: MainMenuComponent},
   {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
