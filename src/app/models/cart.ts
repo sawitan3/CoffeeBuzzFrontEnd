@@ -18,3 +18,12 @@ export interface OrderListResponse {
   item_id: number;
   qty: number;
 }
+
+export interface CartItem {
+  id: number;
+  name: string;
+  size?: string;
+  qty: number;
+  price: number;
+  menuType: ItemType;
+}

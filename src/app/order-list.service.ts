@@ -28,4 +28,8 @@ export class OrderListService {
     const url = `${this.baseUrl}/${this.storage.getItem('user_id')}/get`;
     return this.httpService.get<OrderListResponse[]>(url, this.header);
   }
+
+  public remove(OrderListId: number) {
+    return this.httpService.delete(`${this.baseUrl}/${OrderListId}`, this.header);
+  }
 }
