@@ -21,6 +21,7 @@ import { CreateNewBaristaComponent } from './admin-page/create-new-barista/creat
 import { BaristaTableComponent } from './admin-page/barista-table/barista-table.component';
 import {AdminGuard} from './guard/admin.guard';
 import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.component';
+import {BaristaGuard} from './guard/barista.guard';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterPageComponent},
   {path: 'main-menu', component: MainMenuComponent},
   {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
-  {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard]},
+  {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard, BaristaGuard]},
   {path: '**', component: MainMenuComponent}
 ];
 
