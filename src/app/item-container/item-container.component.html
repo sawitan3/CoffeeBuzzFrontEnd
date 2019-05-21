@@ -14,9 +14,9 @@
 	  			</div>
 				<div class="form-group">
 					<label>Quantity</label>
-					<input class="form-control" type="text" placeholder="Quantity">
+					<input class="form-control" type="text" placeholder="Quantity" [(ngModel)]="qty" [ngModelOptions]="{standalone:true}">
 				</div>
-				Price: ${{selected.price}}<br> <button class="btn btn-primary btn-sm">Add to Cart</button>
+				Price: ${{selected.price}}<br> <button class="btn btn-primary btn-sm" (click)="addToCart()">Add to Cart</button>
 			</form>
 		</div>
 	</div>

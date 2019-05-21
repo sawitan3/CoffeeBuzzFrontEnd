@@ -22,10 +22,11 @@ import { BaristaTableComponent } from './admin-page/barista-table/barista-table.
 import {AdminGuard} from './guard/admin.guard';
 import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.component';
 import {BaristaGuard} from './guard/barista.guard';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterPageComponent},
   {path: 'main-menu', component: MainMenuComponent},
   {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     BaristaPageComponent,
     CreateNewBaristaComponent,
     BaristaTableComponent,
-    EditBaristaComponent
+    EditBaristaComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
