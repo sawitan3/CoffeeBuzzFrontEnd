@@ -32,6 +32,6 @@ export class UsersService {
   }
 
   public password(user: User) {
-    return this.httpService.post(`${environment.baseUrl}`, user, this.header);
+    return this.httpService.put(`${this.baseUrl}/${user.id}`, {...user, role: user.role_id}, this.header);
   }
 }

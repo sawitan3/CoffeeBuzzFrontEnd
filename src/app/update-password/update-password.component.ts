@@ -18,7 +18,7 @@ export class UpdatePasswordComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.authService.me().subscribe((res) => {this.user = res});
+    this.authService.me().subscribe((res) => {this.user = res; });
   }
 
   onSubmit() {

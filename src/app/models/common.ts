@@ -22,7 +22,7 @@ export interface User {
     id: number;
     username: string;
     email: string;
-    role_id?: Role;
+    role_id?: number;
     password?: string;
 }
 
