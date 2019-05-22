@@ -28,8 +28,6 @@ export class ItemContainerComponent implements OnInit {
   }
 
   addToCart() {
-    console.log(this.selected);
-    console.log(this.item);
     this.cartOrchestrator.add(this.selected.itemId, this.qty, this.item.menuType).subscribe(_ => {
       this.router.navigateByUrl('/cart');
     }, err => {
@@ -54,7 +52,6 @@ export class ItemContainerComponent implements OnInit {
     if (this.qty === 0) {
       this.qty = 1;
     }
-
     this.soldOutCheck();
   }
 
