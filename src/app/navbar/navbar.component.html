@@ -15,6 +15,9 @@
         <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
+        <button class="btn btn-link nav-link" (click)="linkClick('/change-password')">Change Password</button>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
         <button class="btn btn-link nav-link" (click)="linkClick('/cart')">Cart</button>
       </li>
     </ul>

@@ -30,4 +30,8 @@ export class UsersService {
   public update(user: User) {
     return this.httpService.patch(`${environment.baseUrl}/admin`, user, this.header);
   }
+
+  public password(user: User) {
+    return this.httpService.post(`${environment.baseUrl}`, user, this.header);
+  }
 }
