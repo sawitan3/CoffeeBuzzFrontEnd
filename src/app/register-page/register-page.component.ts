@@ -12,6 +12,8 @@ export class RegisterPageComponent implements OnInit {
 
   user: RegisterData = { username: '', email: '', role: '3', password: ''};
 
+  error;
+
   constructor(
     private registerService: RegisterService,
     private router: Router) { }
@@ -20,9 +22,13 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSubmit() {
-    this.registerService.addUser(this.user).subscribe();
-    console.log(this.user);
-    this.goHome();
+    this.registerService.addUser(this.user).subscribe((res) => {
+      this.goHome();
+    }, (err) => {
+      this.error = {};
+      this.error.type = 'danger';
+      this.error.message = 'Failed to create a new account, try changing the username.';
+    });
   }
 
   goHome(): void {
