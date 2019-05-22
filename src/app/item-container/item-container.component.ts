@@ -27,6 +27,8 @@ export class ItemContainerComponent implements OnInit {
     console.log(this.item);
     this.cartOrchestrator.add(this.selected.itemId, this.qty, this.item.menuType).subscribe(_ => {
       this.router.navigateByUrl('/cart');
+    }, err => {
+      this.router.navigateByUrl('/login');
     });
   }
 
