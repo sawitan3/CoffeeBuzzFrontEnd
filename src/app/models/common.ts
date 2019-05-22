@@ -23,6 +23,7 @@ export interface User {
     username: string;
     email: string;
     role_id?: number;
+    password?: string;
 }
 
 export enum Role {
