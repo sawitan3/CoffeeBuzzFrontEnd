@@ -18,6 +18,7 @@ export class ItemContainerComponent implements OnInit {
   constructor(private cartOrchestrator: CartOrchestratorService, private router: Router) { }
 
   ngOnInit() {
+    this.qty = 1;
     this.selected = this.item.menuDetails[0];
   }
 
@@ -27,6 +28,15 @@ export class ItemContainerComponent implements OnInit {
     this.cartOrchestrator.add(this.selected.itemId, this.qty, this.item.menuType).subscribe(_ => {
       this.router.navigateByUrl('/cart');
     });
+  }
+
+  onChange() {
+    if (this.qty < 1) {
+      this.qty = -this.qty;
+    }
+    if (this.qty === 0) {
+      this.qty = 1;
+    }
   }
 
 }
