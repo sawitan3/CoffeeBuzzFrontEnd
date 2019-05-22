@@ -16,7 +16,10 @@
 					<label>Quantity</label>
 					<input class="form-control" type="text" placeholder="Quantity" [(ngModel)]="qty" [ngModelOptions]="{standalone:true}" (ngModelChange)="onChange()">
 				</div>
-				Price: ${{qty * selected.price}}<br> <button class="btn btn-primary btn-sm" (click)="addToCart()">Add to Cart</button>
+				Price: ${{qty * selected.price}}<br>
+				<button class="btn btn-primary btn-sm" (click)="addToCart()" [disabled]="button.disabled">
+					{{button.message}}
+				</button>
 			</form>
 		</div>
 	</div>

@@ -12,6 +12,9 @@ export class ItemContainerComponent implements OnInit {
 
   selected: MenuDetails;
   qty: number;
+
+  button: {disabled: boolean; message: string};
+
   @Input()
   public item: MenuItem;
 
@@ -20,6 +23,8 @@ export class ItemContainerComponent implements OnInit {
   ngOnInit() {
     this.qty = 1;
     this.selected = this.item.menuDetails[0];
+    this.button = {disabled: false, message: 'Add to Cart'};
+    this.soldOutCheck();
   }
 
   addToCart() {
@@ -32,6 +37,16 @@ export class ItemContainerComponent implements OnInit {
     });
   }
 
+  soldOutCheck() {
+    if (this.selected.qty && (this.selected.qty === 0 || this.qty > this.selected.qty)) {
+      this.button.disabled = true;
+      this.button.message = 'Sold out';
+    } else {
+      this.button.disabled = false;
+      this.button.message = 'Add to Cart';
+    }
+  }
+
   onChange() {
     if (this.qty < 1) {
       this.qty = -this.qty;
@@ -39,6 +54,8 @@ export class ItemContainerComponent implements OnInit {
     if (this.qty === 0) {
       this.qty = 1;
     }
+
+    this.soldOutCheck();
   }
 
 }
