@@ -8,8 +8,9 @@
         </div>
       </div>
     </div>
-    <div class="float-right">
-      <button [hidden]="!items || items.length == 0" class="btn btn-primary" (click)="goAway()">
+    <div class="float-right" [hidden]="!items || items.length == 0">
+      Total price: ${{sum}}
+      <button class="btn btn-primary" (click)="goAway()">
         Check out!
       </button>
     </div>

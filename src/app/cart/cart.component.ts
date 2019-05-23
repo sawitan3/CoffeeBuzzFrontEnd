@@ -12,6 +12,8 @@ export class CartComponent implements OnInit {
 
   public items: CartItem[];
 
+  public sum: number;
+
   constructor(private orchestratorService: CartOrchestratorService,
               private router: Router) { }
 
@@ -19,6 +21,7 @@ export class CartComponent implements OnInit {
     this.orchestratorService.get().then(res => {
       Promise.all(res).then(result => {
         this.items = result;
+        this.sum = this.items.map((item) => item.price * item.qty).reduce((a, b) => a + b, 0);
       });
     });
   }
