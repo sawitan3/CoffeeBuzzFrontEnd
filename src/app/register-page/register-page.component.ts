@@ -13,6 +13,8 @@ export class RegisterPageComponent implements OnInit {
 
   user: RegisterData = { username: '', email: '', role: '3', password: ''};
 
+  confirm = '';
+
   error: {message; type} = null;
 
   constructor(
