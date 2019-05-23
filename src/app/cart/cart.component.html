@@ -1,13 +1,23 @@
 <div>
   <h1>Shopping Cart</h1>
-  <div *ngFor="let item of items">
-    <div class="row">
-      <div class="col">
-        <app-cart-item [item]="item"></app-cart-item>
+  <div>
+    <div *ngFor="let item of items">
+      <div class="row">
+        <div class="col">
+          <app-cart-item [item]="item"></app-cart-item>
+        </div>
       </div>
     </div>
+    <div class="float-right">
+      <button [hidden]="!items || items.length == 0" class="btn btn-primary" (click)="goAway()">
+        Check out!
+      </button>
+    </div>
+  </div>
+  <div *ngIf="items && items.length == 0">
+    <i>No items in Cart!</i>
   </div>
   <div *ngIf="!items">
-    <i>No items in Cart!</i>
+    <i>Loading cart items!</i>
   </div>
 </div>

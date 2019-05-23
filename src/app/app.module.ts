@@ -24,6 +24,7 @@ import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.com
 import {BaristaGuard} from './guard/barista.guard';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
   {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard, BaristaGuard]},
   {path: 'change-password', component: UpdatePasswordComponent, canActivate: [AuthGuard]},
+  {path: 'payment', component: PaymentPageComponent, canActivate: [AuthGuard]},
   {path: '**', component: MainMenuComponent}
 ];
 
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     BaristaTableComponent,
     EditBaristaComponent,
     CartItemComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,
