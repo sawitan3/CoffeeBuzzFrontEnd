@@ -17,7 +17,7 @@
       <label for="confirmPassword">Confirm Password</label>
       <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
     </div>
-        <ngb-alert [type]="(error == null) ? 'info' : error.type" [hidden]="error==null">{{error.message}}</ngb-alert>
+        <ngb-alert [type]="(error == null) ? 'info' : error.type" [hidden]="error==null" [dismissible]="false">{{error.message}}</ngb-alert>
 		<button type="submit" class="btn btn-primary">Register</button>
 	</form>
 	<hr/>
