@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {MenuItem, MenuDetails} from '../models/common';
 import {CartOrchestratorService} from '../cart-orchestrator.service';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-item-container',
@@ -15,6 +16,8 @@ export class ItemContainerComponent implements OnInit {
 
   button: {disabled: boolean; message: string};
 
+  image: string;
+
   @Input()
   public item: MenuItem;
 
@@ -25,6 +28,7 @@ export class ItemContainerComponent implements OnInit {
     this.selected = this.item.menuDetails[0];
     this.button = {disabled: false, message: 'Add to Cart'};
     this.soldOutCheck();
+    this.image = environment.imageUrls[this.item.menuType];
   }
 
   addToCart() {

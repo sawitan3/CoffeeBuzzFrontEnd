@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CartItem} from '../../models/cart';
 import {OrderListService} from '../../order-list.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-cart-item',
@@ -12,9 +13,12 @@ export class CartItemComponent implements OnInit {
   @Input()
   public item: CartItem;
 
+  image: string;
+
   constructor(private orderService: OrderListService) { }
 
   ngOnInit() {
+    this.image = environment.imageUrls[this.item.menuType];
   }
 
   removeFromCart() {
