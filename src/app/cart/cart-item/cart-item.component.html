@@ -9,6 +9,7 @@
         <li *ngIf="item.size">Size: {{item.size}}</li>
         <li>Quantity: {{item.qty}}</li>
         <li>Price: ${{item.price}}</li>
+        <li>Total Price: ${{item.qty * item.price}}</li>
       </ul>
       <button class="btn btn-primary btn-sm" (click)="removeFromCart()">Remove from Cart</button>
     </div>
