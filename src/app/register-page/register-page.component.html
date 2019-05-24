@@ -1,6 +1,6 @@
 <div>
 	<h1>Register</h1>
-	<form (ngSubmit)="onSubmit()">
+	<form (ngSubmit)="onSubmit()" #registerPage="ngForm">
 		<div class="form-group">
       <label for="username">Username</label>
       <input [(ngModel)]="user.username" required type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username" #username="ngModel">
@@ -21,8 +21,8 @@
       <input type="password" [(ngModel)]="confirm" name="confirm" class="form-control" id="confirmPassword" placeholder="Confirm Password" >
       <ngb-alert type="danger" *ngIf="user.password !== confirm" [dismissible]="false">Password does not match</ngb-alert>
     </div>
-        <ngb-alert [type]="(error == null) ? 'info' : error.type" [hidden]="error==null" [dismissible]="false">{{error.message}}</ngb-alert>
-		<button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!registerPage.form.valid">Register</button>
+    <ngb-alert [type]="(error == null) ? 'info' : error.type" [hidden]="error==null" [dismissible]="false">{{error.message}}</ngb-alert>
 	</form>
 	<hr/>
 	<div>

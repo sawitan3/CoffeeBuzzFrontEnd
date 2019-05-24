@@ -5,7 +5,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <form (ngSubmit)="onSubmit()" class="modal-body">
+  <form (ngSubmit)="onSubmit()" class="modal-body" #newBaristaModal="ngForm">
     <div class="form-group">
       <label for="username">Username</label>
       <input [(ngModel)]="user.username" required type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username" #username="ngModel">
@@ -26,7 +26,7 @@
       <input [(ngModel)]="confirm" type="password" class="form-control" id="confirmPassword" name="confirm" placeholder="Confirm Password">
       <ngb-alert type="danger" *ngIf="user.password !== confirm" [dismissible]="false">Password does not match</ngb-alert>
     </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!newBaristaModal.form.valid">Register</button>
     <ngb-alert [type]="(error == null) ? 'info' : error.type" [hidden]="error==null" [dismissible]="false">{{error!=null?error.message:"Nothing"}}</ngb-alert>
-    <button type="submit" class="btn btn-primary">Register</button>
   </form>
 </div>

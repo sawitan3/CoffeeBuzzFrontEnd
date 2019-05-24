@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterData, RegisterService} from '../register.service';
-import { Location } from '@angular/common';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 
