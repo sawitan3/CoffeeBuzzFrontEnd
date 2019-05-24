@@ -1,0 +1,17 @@
+<div class="container border">
+  <div class="row">
+    <div class="col">
+      <img [src]="image" style="width: 160px; height: 160px;">
+      <h3>{{item.name}}</h3>
+    </div>
+    <div class="col">
+      <ul>
+        <li *ngIf="item.size">Size: {{item.size}}</li>
+        <li>Quantity: {{item.qty}}</li>
+        <li>Price: ${{item.price}}</li>
+        <li>Total Price: ${{item.qty * item.price}}</li>
+      </ul>
+      <button class="btn btn-primary btn-sm" (click)="removeFromCart()">Remove from Cart</button>
+    </div>
+  </div>
+</div>

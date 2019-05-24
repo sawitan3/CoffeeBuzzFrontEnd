@@ -51,6 +51,7 @@ export class DrinksService {
         currentDisplayObject.menuDetails = [];
         currentDrinkId = currentItem.name_id;
       }
+      currentDisplayObject.menuType = 'drink';
       currentDisplayObject.name = currentItem.drink_name[0].name;
       const drinkDetails = new MenuDetails();
       drinkDetails.size = currentItem.drink_size[0].size;

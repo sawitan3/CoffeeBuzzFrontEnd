@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://157.230.248.162/api'
+  baseUrl: 'http://157.230.248.162/api',
+  imageUrls: {
+    food: 'https://www.logolynx.com/images/logolynx/7c/7c928c7034d2640ac4bd11a9dee7ebbc.jpeg',
+    drink: 'https://media.istockphoto.com/vectors/coffee-cup-icon-vector-illustration-business-concept-coffee-mug-vector-id934873544'
+  }
 };
 
 /*

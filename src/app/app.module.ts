@@ -21,6 +21,7 @@ import { CreateNewBaristaComponent } from './admin-page/create-new-barista/creat
 import { BaristaTableComponent } from './admin-page/barista-table/barista-table.component';
 import {AdminGuard} from './guard/admin.guard';
 import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.component';
+
 import { MenuTableComponent } from './admin-page/menu-table/menu-table.component';
 import { FoodListComponent } from './admin-page/food-list/food-list.component';
 import { DrinkListComponent } from './admin-page/drink-list/drink-list.component';
@@ -29,13 +30,21 @@ import { AddNewDrinkComponent } from './admin-page/add-new-drink/add-new-drink.c
 import { EditFoodComponent } from './admin-page/edit-food/edit-food.component';
 import { EditDrinkComponent } from './admin-page/edit-drink/edit-drink.component';
 
+import {BaristaGuard} from './guard/barista.guard';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+
+
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
-  {path: 'cart', component: CartComponent},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterPageComponent},
   {path: 'main-menu', component: MainMenuComponent},
   {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
-  {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard]},
+  {path: 'barista-page', component: BaristaPageComponent, canActivate: [AuthGuard, BaristaGuard]},
+  {path: 'change-password', component: UpdatePasswordComponent, canActivate: [AuthGuard]},
+  {path: 'payment', component: PaymentPageComponent, canActivate: [AuthGuard]},
   {path: '**', component: MainMenuComponent}
 ];
 
@@ -60,7 +69,10 @@ const appRoutes: Routes = [
     AddNewFoodComponent,
     AddNewDrinkComponent,
     EditFoodComponent,
-    EditDrinkComponent
+    EditDrinkComponent,
+    CartItemComponent,
+    UpdatePasswordComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +83,7 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CreateNewBaristaComponent, EditBaristaComponent, AddNewFoodComponent, AddNewDrinkComponent, EditFoodComponent, EditDrinkComponent]
+  entryComponents: [CreateNewBaristaComponent, EditBaristaComponent, AddNewFoodComponent,
+    AddNewDrinkComponent, EditFoodComponent, EditDrinkComponent]
 })
 export class AppModule { }

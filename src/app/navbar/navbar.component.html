@@ -1,5 +1,5 @@
 <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#"><img src="assets/icon.jpg" style="max-width: 5vw" /></a>
+  <a class="navbar-brand" href="#"><img src="assets/logo.png" style="max-width: 5vw" /></a>
   <div class="form-inline my-2 my-sm-0">
   <input type="text" class="form-control form-control-sm" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
   </div>
@@ -14,7 +14,10 @@
       <li class="nav-item" *ngIf="isLoggedIn">
         <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button class="btn btn-link nav-link" (click)="linkClick('/change-password')">Change Password</button>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
         <button class="btn btn-link nav-link" (click)="linkClick('/cart')">Cart</button>
       </li>
     </ul>

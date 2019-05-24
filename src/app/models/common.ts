@@ -1,3 +1,5 @@
+import {ItemType} from './cart';
+
 export interface ApiResponse {
     data: any;
 }
@@ -5,6 +7,7 @@ export interface ApiResponse {
 export class MenuItem {
     name: string;
     menuDetails: MenuDetails[];
+    menuType: ItemType;
 }
 
 export class MenuDetails {
@@ -20,6 +23,7 @@ export interface User {
     username: string;
     email: string;
     role_id?: number;
+    password?: string;
 }
 
 export enum Role {
