@@ -14,7 +14,7 @@ export class UsersService {
   baseUrl = `${environment.baseUrl}/users`;
   header = {
     headers: new HttpHeaders().set('Authorization', `Bearer ${this.storage.getItem('access_token')}`)
-  }
+  };
 
   constructor(private httpService: HttpClient,
               private storage: StorageService) { }

@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Size</th>
+    <th scope="col">Edit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let drink of drinks">
+    <tr>
+      <td>{{ drink.id }}</td>
+      <td>{{ drink.drink_name.values().next().value.name }}</td>
+      <td>{{ drink.price }}</td>
+      <td>{{ drink.drink_size.values().next().value.size }}</td>
+      <td><button type="button" class="btn btn-info" (click)="editDrink(drink.id)">Edit Details</button></td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>

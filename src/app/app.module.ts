@@ -21,6 +21,13 @@ import { CreateNewBaristaComponent } from './admin-page/create-new-barista/creat
 import { BaristaTableComponent } from './admin-page/barista-table/barista-table.component';
 import {AdminGuard} from './guard/admin.guard';
 import { EditBaristaComponent } from './admin-page/edit-barista/edit-barista.component';
+import { MenuTableComponent } from './admin-page/menu-table/menu-table.component';
+import { FoodListComponent } from './admin-page/food-list/food-list.component';
+import { DrinkListComponent } from './admin-page/drink-list/drink-list.component';
+import { AddNewFoodComponent } from './admin-page/add-new-food/add-new-food.component';
+import { AddNewDrinkComponent } from './admin-page/add-new-drink/add-new-drink.component';
+import { EditFoodComponent } from './admin-page/edit-food/edit-food.component';
+import { EditDrinkComponent } from './admin-page/edit-drink/edit-drink.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [LoginPageGuard]},
@@ -45,7 +52,15 @@ const appRoutes: Routes = [
     BaristaPageComponent,
     CreateNewBaristaComponent,
     BaristaTableComponent,
-    EditBaristaComponent
+    EditBaristaComponent,
+    MenuTableComponent,
+    MenuTableComponent,
+    FoodListComponent,
+    DrinkListComponent,
+    AddNewFoodComponent,
+    AddNewDrinkComponent,
+    EditFoodComponent,
+    EditDrinkComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +71,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CreateNewBaristaComponent, EditBaristaComponent]
+  entryComponents: [CreateNewBaristaComponent, EditBaristaComponent, AddNewFoodComponent, AddNewDrinkComponent, EditFoodComponent, EditDrinkComponent]
 })
 export class AppModule { }

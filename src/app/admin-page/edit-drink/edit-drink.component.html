@@ -1,0 +1,27 @@
+
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title">Change Drink Price</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="onSubmit()" class="modal-body">
+    <div class="form-group">
+      <label>{{ drink.drink_name.values().next().value.name }}</label>
+    </div>
+    <div class="form-group">
+      <label>Size</label>
+      <select [(ngModel)]="drink.size_id" id="drinkSize" name="drinkSize" class="form-control">
+        <option [value]="1">Small</option>
+        <option [value]="2">Medium</option>
+        <option [value]="3">Large</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input [(ngModel)]="drink.price" required type="number" name="price" class="form-control" id="price" placeholder="Price" #price="ngModel">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

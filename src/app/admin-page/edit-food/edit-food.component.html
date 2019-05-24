@@ -1,0 +1,23 @@
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title">Update Food Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="onSubmit()" class="modal-body">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input [(ngModel)]="food.name" required type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" #name="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="qty">Quantity</label>
+      <input [(ngModel)]="food.qty" required type="number" name="qty" class="form-control" id="qty" placeholder="Quantity" #qty="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input [(ngModel)]="food.price" required type="number" name="price" class="form-control" id="price" placeholder="Price" #price="ngModel">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

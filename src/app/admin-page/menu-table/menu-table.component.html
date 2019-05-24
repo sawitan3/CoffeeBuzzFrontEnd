@@ -1,0 +1,12 @@
+<ngb-tabset justify="justified">
+  <ngb-tab title="Food">
+    <ng-template ngbTabContent>
+      <app-food-list [foods]="foods"></app-food-list>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Drinks">
+    <ng-template ngbTabContent>
+      <app-drink-list [drinks]="drinks"></app-drink-list>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

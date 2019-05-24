@@ -1,0 +1,26 @@
+<button type="button" class="btn btn-primary" (click)="newFood()">Add New Food Menu</button>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Quantity</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let food of foods">
+    <tr>
+      <td>{{ food.id }}</td>
+      <td>{{ food.name }}</td>
+      <td>{{ food.price }}</td>
+      <td>{{ food.qty }}</td>
+      <td><button type="button" class="btn btn-info" (click)="editFood(food.id)">Edit Details</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteFood(food.id)">Delete {{ food.name }}</button></td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
